@@ -1,0 +1,1970 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg-main: #102f55;
+    --bg-secondary: #5579ae;
+    --text-main: #f8fbff;
+    --text-soft: #dce8f4;
+
+    /* Light department colors */
+
+    --admin: #12525b;
+    --admin-light: rgba(190, 225, 248, 0.58);
+    --admin-glow: rgba(108, 168, 216, 0.55);
+
+    --coag: #1c7e2e;
+    --coag-light: rgba(177, 231, 201, 0.65);
+    --coag-glow: rgba(99, 181, 143, 0.50);
+
+    --coed: #ed9e18;
+    --coed-light: rgba(250, 239, 177, 0.68);
+    --coed-glow: rgba(201, 173, 79, 0.50);
+
+    --cici: #df2193;
+    --cici-light: rgba(246, 196, 218, 0.68);
+    --cici-glow: rgba(207, 120, 163, 0.50);
+
+    --com: #c91d1d;
+    --com-light: rgba(247, 195, 195, 0.68);
+    --com-glow: rgba(201, 109, 109, 0.50);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: var(--text-main);
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(255,255,255,0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 60%,
+            rgba(255,255,255,0.07),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            var(--bg-main),
+            var(--bg-secondary)
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   AMBIENT BLOBS
+========================================================= */
+
+.bg-blob {
+
+    position: fixed;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    opacity: 0.22;
+}
+
+
+.blob-1 {
+
+    width: 300px;
+    height: 300px;
+
+    top: 10%;
+    left: 5%;
+
+    background: var(--coed);
+}
+
+
+.blob-2 {
+
+    width: 350px;
+    height: 350px;
+
+    right: 5%;
+    top: 35%;
+
+    background: var(--cici);
+}
+
+
+.blob-3 {
+
+    width: 280px;
+    height: 280px;
+
+    left: 30%;
+    bottom: 5%;
+
+    background: var(--coag);
+}
+
+
+/* =========================================================
+   FIXED GLASS HEADER
+   KEEP DARK BLUE
+========================================================= */
+
+.chart-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 900;
+
+    padding: 14px 30px;
+
+    background:
+        rgba(18, 52, 88, 0.68);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.22);
+
+    backdrop-filter:
+        blur(22px)
+        saturate(140%);
+
+    -webkit-backdrop-filter:
+        blur(22px)
+        saturate(140%);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.18),
+        inset 0 1px rgba(255,255,255,0.20);
+}
+
+
+.header-brand {
+
+    width: min(1200px, 100%);
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.university-logo {
+
+    width: 72px;
+    height: 72px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.18),
+        inset 0 1px rgba(255,255,255,0.4);
+}
+
+
+.university-logo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.header-information {
+    min-width: 0;
+}
+
+
+.small-title {
+
+    color: var(--text-soft);
+
+    font-size: 0.78rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 3px;
+}
+
+
+.header-information h1 {
+
+    font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+
+    line-height: 1.2;
+
+    font-weight: 750;
+
+    color: #f0cc0d;
+}
+
+
+.header-information p {
+
+    margin-top: 3px;
+
+    font-size: clamp(0.62rem, 1.5vw, 0.82rem);
+
+    color: var(--text-soft);
+
+    letter-spacing: 0.6px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(1200px, 100%);
+
+    margin: auto;
+
+    padding:
+        155px 20px
+        50px;
+}
+
+
+/* =========================================================
+   ORGANIZATIONAL CHART
+   ENTIRE CHART = LIGHT BLUE
+   NO BORDER
+========================================================= */
+
+.organization {
+
+    width: 100%;
+
+    padding:
+        35px 25px
+        45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background:
+        rgba(190, 225, 248, 0.42);
+
+    /* IMPORTANT: NO BORDER */
+
+    border: none;
+
+    border-radius: 30px;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,0.30);
+}
+
+
+/* =========================================================
+   PERSON LEVEL
+========================================================= */
+
+.person-level {
+
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CONNECTOR
+========================================================= */
+
+.vertical-connector {
+
+    width: 2px;
+
+    height: 38px;
+
+    background:
+        rgba(220,235,248,0.85);
+
+    box-shadow:
+        0 0 7px rgba(220,235,248,0.35);
+}
+
+
+/* =========================================================
+   PERSON CARD
+========================================================= */
+
+.person-card {
+
+    width: 300px;
+
+    min-height: 190px;
+
+    padding: 24px 20px;
+
+    position: relative;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    border-radius: 24px;
+
+    background:
+        var(--admin-light);
+
+    border:
+        1px solid rgba(108,168,216,0.38);
+
+    backdrop-filter:
+        blur(18px)
+        saturate(135%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(135%);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.14),
+        inset 0 1px rgba(255,255,255,0.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.person-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        var(--theme);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.18),
+        0 0 24px var(--theme-glow),
+        inset 0 1px rgba(255,255,255,0.40);
+}
+
+
+.person-card:focus-visible {
+
+    outline:
+        2px solid var(--theme);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+.person-card[data-theme="admin"] {
+
+    --theme: var(--admin);
+    --theme-glow: var(--admin-glow);
+
+    background:
+        var(--admin-light);
+}
+
+
+/* =========================================================
+   PRESIDENT
+   LIGHT BLUE
+========================================================= */
+
+.person-card[data-theme="president"] {
+
+    --theme: var(--admin);
+    --theme-glow: var(--admin-glow);
+
+    background:
+        var(--admin-light);
+
+    border-color:
+        rgba(108,168,216,0.38);
+}
+
+
+/* =========================================================
+   COAG
+   LIGHT GREEN
+========================================================= */
+
+.person-card[data-theme="coag"] {
+
+    --theme: var(--coag);
+    --theme-glow: var(--coag-glow);
+
+    background:
+        var(--coag-light);
+
+    border-color:
+        rgba(99,181,143,0.42);
+}
+
+
+/* =========================================================
+   COED
+   LIGHT YELLOW
+========================================================= */
+
+.person-card[data-theme="coed"] {
+
+    --theme: var(--coed);
+    --theme-glow: var(--coed-glow);
+
+    background:
+        var(--coed-light);
+
+    border-color:
+        rgba(201,173,79,0.42);
+}
+
+
+/* =========================================================
+   CICI
+   LIGHT PINK
+========================================================= */
+
+.person-card[data-theme="cici"] {
+
+    --theme: var(--cici);
+    --theme-glow: var(--cici-glow);
+
+    background:
+        var(--cici-light);
+
+    border-color:
+        rgba(207,120,163,0.42);
+}
+
+
+/* =========================================================
+   COM
+   LIGHT RED
+========================================================= */
+
+.person-card[data-theme="com"] {
+
+    --theme: var(--com);
+    --theme-glow: var(--com-glow);
+
+    background:
+        var(--com-light);
+
+    border-color:
+        rgba(201,109,109,0.42);
+}
+
+
+/* =========================================================
+   THEME CLASSES
+========================================================= */
+
+.theme-coag {
+
+    --theme: var(--coag);
+    --theme-glow: var(--coag-glow);
+}
+
+
+.theme-coed {
+
+    --theme: var(--coed);
+    --theme-glow: var(--coed-glow);
+}
+
+
+.theme-cici {
+
+    --theme: var(--cici);
+    --theme-glow: var(--cici-glow);
+}
+
+
+.theme-com {
+
+    --theme: var(--com);
+    --theme-glow: var(--com-glow);
+}
+
+
+/* =========================================================
+   DEPARTMENT CARDS
+========================================================= */
+
+.deans-grid .theme-coag {
+
+    background:
+        var(--coag-light);
+}
+
+
+.deans-grid .theme-coed {
+
+    background:
+        var(--coed-light);
+}
+
+
+.deans-grid .theme-cici {
+
+    background:
+        var(--cici-light);
+}
+
+
+.deans-grid .theme-com {
+
+    background:
+        var(--com-light);
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.person-photo {
+
+    width: 82px;
+    height: 82px;
+
+    margin:
+        0 auto 14px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.20);
+
+    border:
+        2px solid rgba(255,255,255,0.72);
+
+    box-shadow:
+        0 6px 16px rgba(0,0,0,0.20);
+}
+
+
+.person-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================================
+   PERSON TEXT
+========================================================= */
+
+.person-information h2 {
+
+    font-size: 1.05rem;
+
+    color: #19324b;
+
+    margin-bottom: 6px;
+}
+
+
+.person-role {
+
+    font-size: 0.84rem;
+
+    font-weight: 650;
+
+    color:
+        var(--theme);
+
+    line-height: 1.4;
+}
+
+
+.person-department {
+
+    margin-top: 6px;
+
+    font-size: 0.72rem;
+
+    color:
+        rgba(25,50,75,0.68);
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   DEANS TITLE
+========================================================= */
+
+.deans-title {
+
+    width: 100%;
+
+    margin:
+        42px 0 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.deans-title span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(25,50,75,0.25)
+        );
+}
+
+
+.deans-title span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(25,50,75,0.25),
+            transparent
+        );
+}
+
+
+.deans-title h2 {
+
+    flex-shrink: 0;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    color:
+        #35516b;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+.deans-title i {
+
+    margin-right: 7px;
+}
+
+
+/* =========================================================
+   DEANS GRID
+========================================================= */
+
+.deans-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+.deans-grid > .dean-card,
+.cici-section {
+
+    width: 100%;
+}
+
+
+.deans-grid .dean-card {
+
+    min-height: 245px;
+
+    height: 245px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   DEPARTMENT BADGE
+========================================================= */
+
+.department-badge {
+
+    position: absolute;
+
+    top: -12px;
+    right: -10px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.35);
+
+    border:
+        2px solid var(--theme);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.18),
+        0 0 14px var(--theme-glow);
+}
+
+
+.department-badge img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.department-badge span {
+
+    display: none;
+
+    color:
+        var(--theme);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.department-badge.badge-fallback span {
+
+    display: block;
+}
+
+
+/* =========================================================
+   CICI SECTION
+========================================================= */
+
+.cici-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+}
+
+
+.cici-section .dean-card {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CICI FACULTY BUTTON
+========================================================= */
+
+.toggle-faculty-btn {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 11px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-radius: 13px;
+
+    border:
+        1px solid rgba(207,120,163,0.42);
+
+    color:
+        #35516b;
+
+    background:
+        rgba(246,196,218,0.45);
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor: pointer;
+
+    font-weight: 650;
+
+    transition:
+        0.25s ease;
+}
+
+
+.toggle-faculty-btn:hover {
+
+    border-color:
+        var(--cici);
+
+    box-shadow:
+        0 0 16px
+        var(--cici-glow);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.toggle-faculty-btn.faculty-open {
+
+    background:
+        rgba(246,196,218,0.65);
+}
+
+
+/* =========================================================
+   FACULTY
+========================================================= */
+
+.it-faculty-grid {
+
+    width: 100%;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.35s ease;
+
+    margin-top: 12px;
+}
+
+
+.it-faculty-grid.expanded {
+
+    max-height: 1500px;
+
+    opacity: 1;
+}
+
+
+.faculty-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.faculty-card {
+
+    min-height: 82px;
+
+    padding: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(246,196,218,0.42);
+
+    border:
+        1px solid rgba(207,120,163,0.30);
+
+    color:
+        #35516b;
+
+    cursor: pointer;
+
+    transition:
+        0.25s ease;
+}
+
+
+.faculty-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--cici);
+
+    box-shadow:
+        0 0 14px
+        rgba(207,120,163,0.40);
+}
+
+
+.faculty-photo {
+
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,0.65);
+}
+
+
+.faculty-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.faculty-card h3 {
+
+    font-size: 0.72rem;
+
+    margin-bottom: 4px;
+
+    color:
+        #19324b;
+}
+
+
+.faculty-card span {
+
+    font-size: 0.62rem;
+
+    color:
+        var(--cici);
+}
+
+
+/* =========================================================
+   PROFILE MODAL
+========================================================= */
+
+.profile-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(7,25,45,0.58);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.profile-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-content {
+
+    width: min(480px, 100%);
+
+    padding: 28px;
+
+    position: relative;
+
+    border-radius: 24px;
+
+    background:
+        rgba(235,244,250,0.94);
+
+    color:
+        #19324b;
+
+    border:
+        1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.35),
+        inset 0 1px rgba(255,255,255,0.9);
+
+    transform:
+        scale(0.92);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.profile-modal.active .modal-content {
+
+    transform:
+        scale(1);
+}
+
+
+/* =========================================================
+   MODAL THEMES
+   COLOR CHANGES WHEN CARD IS CLICKED
+========================================================= */
+
+.profile-modal[data-theme="admin"] .modal-content,
+.profile-modal[data-theme="president"] .modal-content {
+
+    background:
+        rgba(190,225,248,0.88);
+}
+
+
+.profile-modal[data-theme="coag"] .modal-content {
+
+    background:
+        rgba(177,231,201,0.88);
+}
+
+
+.profile-modal[data-theme="coed"] .modal-content {
+
+    background:
+        rgba(250,239,177,0.90);
+}
+
+
+.profile-modal[data-theme="cici"] .modal-content {
+
+    background:
+        rgba(246,196,218,0.90);
+}
+
+
+.profile-modal[data-theme="com"] .modal-content {
+
+    background:
+        rgba(247,195,195,0.90);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-btn {
+
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(20,55,85,0.08);
+
+    color:
+        #19324b;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s;
+}
+
+
+.close-btn:hover {
+
+    background:
+        rgba(20,55,85,0.15);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modal-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid rgba(25,50,75,0.12);
+}
+
+
+.modal-photo {
+
+    width: 72px;
+    height: 72px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border:
+        3px solid rgba(108,168,216,0.6);
+}
+
+
+.modal-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.modal-header h2 {
+
+    font-size: 1.25rem;
+
+    margin-bottom: 5px;
+}
+
+
+.modal-role {
+
+    display: block;
+
+    font-size: 0.82rem;
+
+    font-weight: 650;
+
+    color:
+        #35516b;
+
+    margin-bottom: 7px;
+}
+
+
+.modal-department {
+
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.38);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PROFILE ACTIONS
+========================================================= */
+
+.profile-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding-top: 20px;
+}
+
+
+.profile-icon {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(25,50,75,0.15);
+
+    background:
+        rgba(255,255,255,0.38);
+
+    color:
+        #35516b;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.profile-icon:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.facebook-icon:hover {
+
+    color:
+        #1877f2;
+
+    background:
+        rgba(24,119,242,0.12);
+
+    box-shadow:
+        0 0 15px rgba(24,119,242,0.25);
+}
+
+
+.email-icon:hover {
+
+    color:
+        #ea4335;
+
+    background:
+        rgba(234,67,53,0.12);
+
+    box-shadow:
+        0 0 15px rgba(234,67,53,0.25);
+}
+
+
+/* =========================================================
+   SEND MESSAGE
+========================================================= */
+
+.send-message-btn {
+
+    min-height: 44px;
+
+    padding:
+        0 17px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid rgba(25,50,75,0.15);
+
+    background:
+        rgba(255,255,255,0.38);
+
+    color:
+        #35516b;
+
+    cursor: pointer;
+
+    font-weight: 650;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.send-message-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.55);
+
+    box-shadow:
+        0 0 15px rgba(25,50,75,0.15);
+}
+
+
+/* =========================================================
+   CLICK ANIMATIONS
+========================================================= */
+
+.icon-clicked {
+
+    animation:
+        iconPulse 0.45s ease;
+}
+
+
+.message-clicked {
+
+    animation:
+        messagePulse 0.50s ease;
+}
+
+
+@keyframes iconPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.88) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes messagePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.96);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    margin-top: 20px;
+
+    padding:
+        35px 20px
+        25px;
+
+    background:
+        rgba(8,31,55,0.55);
+
+    border-top:
+        1px solid rgba(255,255,255,0.16);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+
+.footer-inner {
+
+    width:
+        min(1100px, 100%);
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   FOOTER SOCIAL
+========================================================= */
+
+.footer-social {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+}
+
+
+.footer-social a {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    color:
+        var(--text-soft);
+
+    text-decoration:
+        none;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid rgba(255,255,255,0.20);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* TikTok */
+
+.footer-social a:nth-child(1):hover {
+
+    color:
+        #000000;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 0 18px rgba(37,244,238,0.45);
+}
+
+
+/* Facebook */
+
+.footer-social a:nth-child(2):hover {
+
+    color:
+        #1877f2;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 0 18px rgba(24,119,242,0.45);
+}
+
+
+/* Instagram */
+
+.footer-social a:nth-child(3):hover {
+
+    color:
+        #e4405f;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 0 18px rgba(228,64,95,0.45);
+}
+
+
+/* GitHub */
+
+.footer-social a:nth-child(4):hover {
+
+    color:
+        #24292f;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 0 18px rgba(36,41,47,0.45);
+}
+
+
+.footer-social a:hover {
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-copyright {
+
+    color:
+        rgba(220,232,244,0.72);
+
+    font-size:
+        0.75rem;
+
+    line-height:
+        1.7;
+}
+
+
+.footer-copyright strong {
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        10px 17px;
+
+    border-radius:
+        13px;
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+    color:
+        #ffffff;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor:
+        pointer;
+
+    font-weight:
+        650;
+
+    transition:
+        0.25s ease;
+}
+
+
+.back-to-top:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 0 18px
+        rgba(255,255,255,0.18);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .deans-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .chart-header {
+
+        padding:
+            10px 14px;
+    }
+
+
+    .header-brand {
+
+        gap:
+            11px;
+    }
+
+
+    .university-logo {
+
+        width:
+            55px;
+
+        height:
+            55px;
+    }
+
+
+    .small-title {
+
+        font-size:
+            0.62rem;
+
+        letter-spacing:
+            1.2px;
+    }
+
+
+    .header-information h1 {
+
+        font-size:
+            1rem;
+    }
+
+
+    .header-information p {
+
+        font-size:
+            0.56rem;
+
+        line-height:
+            1.3;
+    }
+
+
+    .container {
+
+        padding:
+            125px 13px
+            35px;
+    }
+
+
+    .organization {
+
+        padding:
+            25px 13px
+            35px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .person-card {
+
+        width:
+            100%;
+
+        min-height:
+            180px;
+    }
+
+
+    .deans-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+    }
+
+
+    .deans-grid .dean-card {
+
+        height:
+            220px;
+
+        min-height:
+            220px;
+    }
+
+
+    .faculty-cards {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .modal-content {
+
+        padding:
+            24px 20px;
+    }
+
+
+    .modal-header h2 {
+
+        font-size:
+            1rem;
+    }
+
+
+    .profile-actions {
+
+        flex-wrap:
+            wrap;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .university-logo {
+
+        width:
+            48px;
+
+        height:
+            48px;
+    }
+
+
+    .header-information h1 {
+
+        font-size:
+            0.88rem;
+    }
+
+
+    .header-information p {
+
+        font-size:
+            0.5rem;
+    }
+
+
+    .person-card {
+
+        padding:
+            20px 16px;
+    }
+
+
+    .organization {
+
+        padding:
+            22px 10px
+            30px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+    }
+
+}
