@@ -1,0 +1,656 @@
+/* =========================================================
+   CICI ACTIVITIES PAGE
+   Page-specific styling only.
+   Shared header/footer/background remain in styles.css.
+   ========================================================= */
+
+:root {
+    --cici-pink: #df2193;
+    --cici-pink-light: rgba(246, 196, 218, 0.68);
+    --cici-pink-glow: rgba(207, 120, 163, 0.50);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.activities-container {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    padding-top: 155px;
+    padding-bottom: 60px;
+}
+
+
+/* =========================================================
+   MAIN PANEL
+   ========================================================= */
+
+.activities-panel {
+    width: 100%;
+    padding: 38px 30px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(224, 242, 255, 0.82),
+            rgba(186, 216, 241, 0.70)
+        );
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 55px rgba(4, 25, 55, 0.22);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   CICI HEADING
+   ========================================================= */
+
+.activities-heading {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+
+    border-bottom: 2px solid rgba(223, 33, 147, 0.22);
+}
+
+.cici-logo {
+    width: 82px;
+    height: 82px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid rgba(223, 33, 147, 0.35);
+
+    box-shadow:
+        0 0 0 6px rgba(223, 33, 147, 0.08),
+        0 10px 25px rgba(207, 120, 163, 0.30);
+}
+
+.activities-eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--cici-pink);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.activities-heading h2 {
+    margin: 0;
+
+    color: #12345a;
+
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1.1;
+}
+
+.activities-heading p {
+    margin: 9px 0 0;
+
+    max-width: 700px;
+
+    color: #315273;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACTIVITY GRID
+   ========================================================= */
+
+.activities-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   ACTIVITY CARD
+   ========================================================= */
+
+.activity-card {
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px rgba(16, 47, 85, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(223, 33, 147, 0.35);
+
+    box-shadow:
+        0 18px 38px rgba(16, 47, 85, 0.17),
+        0 0 25px rgba(207, 120, 163, 0.15);
+}
+
+
+/* =========================================================
+   ACTIVITY PHOTO
+   ========================================================= */
+
+.activity-photo {
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+
+    background: rgba(223, 33, 147, 0.10);
+}
+
+.activity-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.activity-card:hover .activity-photo img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   ACTIVITY CONTENT
+   ========================================================= */
+
+.activity-content {
+    padding: 20px 21px 23px;
+}
+
+.activity-number {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--cici-pink);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.activity-content h3 {
+    margin: 0 0 9px;
+
+    color: #12345a;
+
+    font-size: 1.18rem;
+    line-height: 1.25;
+}
+
+.activity-content p {
+    margin: 0;
+
+    color: #45627f;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .activities-container {
+        width: min(94vw, 600px);
+
+        padding-top: 125px;
+        padding-bottom: 40px;
+    }
+
+    .activities-panel {
+        padding: 25px 17px 30px;
+        border-radius: 24px;
+    }
+
+    .activities-heading {
+        align-items: flex-start;
+        gap: 15px;
+
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+
+    .cici-logo {
+        width: 62px;
+        height: 62px;
+        flex-shrink: 0;
+    }
+
+    .activities-eyebrow {
+        font-size: 0.62rem;
+    }
+
+    .activities-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .activities-heading p {
+        font-size: 0.84rem;
+        line-height: 1.5;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .activity-photo {
+        height: 190px;
+    }
+
+    .activity-content {
+        padding: 17px 18px 20px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .activities-heading {
+        flex-direction: column;
+    }
+
+    .cici-logo {
+        width: 68px;
+        height: 68px;
+    }
+
+    .activity-photo {
+        height: 175px;
+    }
+
+}
+
+/* =========================================================
+   ITQUAINT GALLERY
+   ========================================================= */
+
+.activity-gallery-trigger {
+    cursor: pointer;
+}
+
+.gallery-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 15px;
+
+    color: #df2193;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.gallery-hint i {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   GALLERY MODAL
+   ========================================================= */
+
+.activity-gallery-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(5, 18, 38, 0.90);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.activity-gallery-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.gallery-content {
+    position: relative;
+
+    width: min(1050px, 94vw);
+    max-height: 94vh;
+
+    padding: 25px;
+
+    overflow: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(224, 242, 255, 0.97),
+            rgba(186, 216, 241, 0.95)
+        );
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.40),
+        0 0 35px rgba(223, 33, 147, 0.16);
+}
+
+
+/* Close button */
+
+.gallery-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(18, 52, 90, 0.90);
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-close:hover {
+    background: #df2193;
+    transform: rotate(5deg) scale(1.05);
+}
+
+
+/* Gallery title */
+
+.gallery-header {
+    padding: 5px 55px 18px 5px;
+}
+
+.gallery-header span {
+    color: #df2193;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+.gallery-header h2 {
+    margin: 4px 0 0;
+
+    color: #12345a;
+
+    font-size: 1.65rem;
+}
+
+
+/* Main image */
+
+.gallery-main {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 450px;
+
+    padding: 10px 55px;
+
+    border-radius: 18px;
+
+    background: rgba(10, 32, 60, 0.12);
+}
+
+.gallery-main img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 58vh;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Previous / next */
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(18, 52, 90, 0.90);
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-arrow:hover {
+    background: #df2193;
+}
+
+.gallery-prev {
+    left: 10px;
+}
+
+.gallery-next {
+    right: 10px;
+}
+
+
+/* Thumbnails */
+
+.gallery-thumbnails {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 15px;
+
+    padding: 5px;
+
+    overflow-x: auto;
+}
+
+.gallery-thumbnail {
+    flex: 0 0 76px;
+
+    width: 76px;
+    height: 58px;
+
+    padding: 0;
+
+    border: 2px solid transparent;
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition:
+        opacity 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-thumbnail:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.gallery-thumbnail.active {
+    opacity: 1;
+
+    border-color: #df2193;
+
+    box-shadow:
+        0 0 12px rgba(223, 33, 147, 0.30);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Counter */
+
+.gallery-counter {
+    margin-top: 10px;
+
+    text-align: center;
+
+    color: #315273;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .activity-gallery-modal {
+        padding: 10px;
+    }
+
+    .gallery-content {
+        width: 96vw;
+
+        padding: 18px;
+
+        border-radius: 20px;
+    }
+
+    .gallery-header {
+        padding-right: 45px;
+    }
+
+    .gallery-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .gallery-main {
+        min-height: 280px;
+        padding: 10px 42px;
+    }
+
+    .gallery-main img {
+        max-height: 48vh;
+    }
+
+    .gallery-arrow {
+        width: 38px;
+        height: 38px;
+    }
+
+    .gallery-prev {
+        left: 6px;
+    }
+
+    .gallery-next {
+        right: 6px;
+    }
+
+    .gallery-thumbnail {
+        flex-basis: 64px;
+        width: 64px;
+        height: 50px;
+    }
+
+}
